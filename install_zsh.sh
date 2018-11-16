@@ -20,6 +20,6 @@ else
   exit 1;
 fi
 
-sudo usermod -s /usr/bin/zsh ${user}
+sudo usermod -s /usr/bin/zsh $(whoami)
 curl -L http://install.ohmyz.sh | sh
 
