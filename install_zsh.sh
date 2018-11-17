@@ -22,5 +22,4 @@ fi
 
 sudo usermod -s /usr/bin/zsh $(whoami)
 curl -L http://install.ohmyz.sh | sh
-#sed -i.bak '/^plugins/{n;s/git/git\n  docker/}' .zshrc 
 sed -i.bak -e '/^plugins/{n;p;s/git/docker/}' .zshrc
