@@ -20,6 +20,6 @@ else
   exit 1;
 fi
 
-sudo usermod -s /usr/bin/zsh $(whoami)
+sudo usermod -s /bin/zsh $(whoami)
 curl -L http://install.ohmyz.sh | sh
 sed -i.bak -e '/^plugins/{n;p;s/git/docker/}' .zshrc
