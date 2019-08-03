@@ -1,12 +1,14 @@
 #!/bin/bash
 # Install Code Server on Linux Platform 
+url_latest=https://github.com/cdr/code-server/releases/latest
+url_effective=$(curl -sSL -I -o /dev/null -w %{url_effective} ${url_latest})
+tag=${url_effective##*/}
+echo "Installing ${tag} version of codeserver"
 
-tag=1.939-vsc1.33.1
 codeserver=code-server${tag}-linux-x64.tar.gz
-wget https://github.com/cdr/code-server/releases/download/${tag}/${codeserver}
-mkdir vscodeserver \
-&& tar zxf $codeserver -C vscodeserver --strip-components 1 \
+wget -q https://github.com/cdr/code-server/releases/download/${tag}/${codeserver}
+vsdir=vscodeserver
+[[ -d $vsdir ]] && rm -rf $vsdir
+mkdir $vsdir \
+&& tar zxf $codeserver -C $vsdir --strip-components 1 \
 && rm $codeserver
-
-#url_latest=https://github.com/cdr/code-server/releases/latest
-#url_effective=$(curl -sSL -I -o /dev/null -w %{url_effective} ${url_latest})
