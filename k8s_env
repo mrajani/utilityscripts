@@ -1,0 +1,7 @@
+export docker_version=5:18.09.9~3-0~ubuntu-bionic
+export LBExt=34.213.178.15
+export LBInt=172.31.97.0
+export K8sCP1=172.31.102.171
+export K8sCP2=172.31.106.202
+export K8sCP3=172.31.110.163
+export POD_CIDR=10.241.0.0/16
