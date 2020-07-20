@@ -15,4 +15,5 @@ mkdir $vsdir \
   && tar zxf $codeserver -C $vsdir --strip-components 1 \
   && rm $codeserver
 
-ln -s $vsdir/* $HOME/.local/bin/
+[[ -L $HOME/.local/bin/code-server ]] && rm -rf $HOME/.local/bin/code-server
+ln -s $vsdir/bin/code-server $HOME/.local/bin/code-server
