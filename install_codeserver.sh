@@ -17,3 +17,5 @@ mkdir $vsdir \
 
 [[ -L $HOME/.local/bin/code-server ]] && rm -rf $HOME/.local/bin/code-server
 ln -s $vsdir/bin/code-server $HOME/.local/bin/code-server
+
+echo "Install Extensions GitLens, Terraform, Ansible"
