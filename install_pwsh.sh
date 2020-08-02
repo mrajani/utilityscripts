@@ -17,6 +17,7 @@ sudo apt-get install -f -y
 
 echo "Run pwsh and install Az module"
 echo "Install-Module -Name Az -AllowClobber -Force"
+pwsh -c "Install-Module -Name Az -AllowClobber -Force"
 
 pwshdir=$HOME/.pwsh
 [[ -d $pwshdir ]] && rm -rf $pwshdir
