@@ -31,4 +31,4 @@ fi
 ln -s $HOME/.tfenv/bin/* $HOME/.local/bin/
 source $HOME/.profile
 which tfenv
-tfenv install latest:^0.12
+tfenv install latest:^0.13
