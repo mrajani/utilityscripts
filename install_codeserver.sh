@@ -4,9 +4,10 @@
 url_latest=https://github.com/cdr/code-server/releases/latest
 url_effective=$(curl -sSL -I -o /dev/null -w %{url_effective} ${url_latest})
 tag=${url_effective##*/}
-echo "Installing ${tag} version of codeserver"
+ver=${tag##[a-z]}
+echo "Installing ${tag} or ${ver} version of codeserver"
 
-codeserver=code-server-${tag}-linux-x86_64.tar.gz
+codeserver=code-server-${ver}-linux-x86_64.tar.gz
 wget -q https://github.com/cdr/code-server/releases/download/${tag}/${codeserver}
 
 vsdir=$HOME/.vscodeserver
