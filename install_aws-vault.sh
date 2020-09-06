@@ -9,5 +9,6 @@ tag=${url_effective##*/}
 ver=${tag##[a-z]}
 os_ver=$(lsb_release -sr)
 aws_vault=aws-vault-linux-amd64
-wget -q -O $HOME/.local/bin/${aws_vault} ${url}/download/${tag}/${aws_vault}
+wget -q -O $HOME/.local/bin/aws-vault ${url}/download/${tag}/${aws_vault}
+chmod +x $HOME/.local/bin/aws-vault
 echo "Installing ${tag} version of aws-vault for ${os_ver} $(lsb_release -cs) "
