@@ -11,7 +11,8 @@ export SSHPASS=${LAPASSWD}
    ssh-keygen -t rsa -b 2048 -N "" -C "lnx-academy" -f ~/.ssh/lnxa_rsa
 
 
-for server in ${MYHOST}{1..9}c.${DOMAIN}; do 
+for h in "${MYHOST[@]}"; do 
+  server=${h}.${DOMAIN}
   ssh-keygen -f /home/vagrant/.ssh/known_hosts -R $server
   ssh-keyscan ${server} >> $HOME/.ssh/known_hosts
 
@@ -22,10 +23,11 @@ for server in ${MYHOST}{1..9}c.${DOMAIN}; do
 done
 
 
-for server in ${MYHOST}{1..9}c.${DOMAIN}; do 
-    echo set up cloud user for sudo privileges
-    sshpass -e echo "$LAPASSWD" | \
-       ssh -qt ${server} sudo -S echo "cloud_user ALL=\(ALL\) NOPASSWD:ALL | sudo tee /etc/sudoers.d/cloud_user"
-    sshpass -e echo "$LAPASSWD" | \
-       ssh -qt ${server} sudo -S echo "ansible ALL=\(ALL\) NOPASSWD:ALL | sudo tee /etc/sudoers.d/ansible"
+for h in "${MYHOST[@]}"; do 
+  server=${h}.${DOMAIN}
+  echo set up cloud user for sudo privileges
+  sshpass -e echo "$LAPASSWD" | \
+    ssh -qt ${server} sudo -S echo "cloud_user ALL=\(ALL\) NOPASSWD:ALL | sudo tee /etc/sudoers.d/cloud_user"
+  sshpass -e echo "$LAPASSWD" | \
+    ssh -qt ${server} sudo -S echo "ansible ALL=\(ALL\) NOPASSWD:ALL | sudo tee /etc/sudoers.d/ansible"
 done
