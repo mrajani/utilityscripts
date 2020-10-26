@@ -7,7 +7,8 @@ tag=${url_effective##*/}
 ver=${tag##[a-z]}
 echo "Installing ${tag} or ${ver} version of codeserver"
 
-codeserver=code-server-${ver}-linux-x86_64.tar.gz
+codeserver=code-server-${ver}-linux-amd64.tar.gz
+echo https://github.com/cdr/code-server/releases/download/${tag}/${codeserver}
 wget -q https://github.com/cdr/code-server/releases/download/${tag}/${codeserver}
 
 vsdir=$HOME/.vscodeserver
