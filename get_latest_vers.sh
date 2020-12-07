@@ -16,3 +16,8 @@ latest_url=https://github.com/hashicorp/vault/releases/latest
 temp=$(curl -sSL -I -o /dev/null -w %{url_effective} $latest_url)
 vault_version=${temp##*/v}
 echo vault $vault_version
+
+latest_url=https://github.com/hashicorp/terraform/releases/latest
+temp=$(curl -sSL -I -o /dev/null -w %{url_effective} $latest_url)
+terraform_version=${temp##*/v}
+echo terraform $terraform_version
