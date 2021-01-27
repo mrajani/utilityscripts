@@ -21,3 +21,10 @@ latest_url=https://github.com/hashicorp/terraform/releases/latest
 temp=$(curl -sSL -I -o /dev/null -w %{url_effective} $latest_url)
 terraform_version=${temp##*/v}
 echo terraform $terraform_version
+
+latest_url=https://github.com/ericchiang/pup/releases/latest
+temp=$(curl -sSL -I -o /dev/null -w %{url_effective} $latest_url)
+pup_version=${temp##*/v}
+echo pup $pup_version
+#cat consul.html | pup 'body ul li a text{}' | egrep -v '\.\.|ent|rc|beta' | head -1
+
