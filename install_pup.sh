@@ -1,6 +1,7 @@
 #!/bin/bash
 # Install pup parser on Linux Platform 
 
+product=pup
 pup_latest_url=https://github.com/ericchiang/pup/releases/latest
 temp=$(curl -sSL -I -o /dev/null -w %{url_effective} $pup_latest_url)
 pup_version=${temp##*/v}
