@@ -38,8 +38,8 @@ terraform_version=${temp##*/v}
 echo terraform $terraform_version
 
 url=https://checkpoint-api.hashicorp.com/v1/check/terraform
-ver=$(curl -sSL  ${url} | jq '.current_version'| sed -e 's/"//g')
-echo terraform $ver
+ver=$(curl -sSL  ${url} | jq -r '.current_version')
+echo terraform $ver -
 
 latest_url=https://github.com/ericchiang/pup/releases/latest
 temp=$(curl -sSL -I -o /dev/null -w %{url_effective} $latest_url)
