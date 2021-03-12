@@ -1,6 +1,11 @@
 #!/bin/bash
 # Show latest version of Hashicorp
 
+url=https://github.com/ansible/awx/releases/latest
+temp=$(curl -sSL -I -o /dev/null ${url} -w %{url_effective})
+awx_version=${temp##*/}
+echo Ansible AWX tag ${awx_version}
+
 url=https://checkpoint-api.hashicorp.com/v1/check/nomad
 ver=$(curl -sSL  ${url} | jq '.current_version'| sed -e 's/"//g')
 echo nomad $ver
