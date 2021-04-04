@@ -1,6 +1,6 @@
 #!/bin/bash
 
-code=$(command -v codes-server || command -v code)
+code=$(command -v code-server || command -v code)
 
 if [ -z $code ]; then
   echo "visual studio code is not installed" >&2
