@@ -2,11 +2,11 @@
 
 #---- Script to Generate Self Signed Certs ----#
 
-hostname=`hostname -f`
+hostname=`hostname -s`
 openssl genrsa -out ${hostname}.key 2048
 openssl req -new -key ${hostname}.key -out ${hostname}.csr \
   -extensions v3_ca \
-  -subj "/C=US/ST=CA/O=JustDoIt/L=San Jose/OU=JustDoIt/CN=Universal CA root"
+  -subj "/C=US/ST=CA/O=IonoAI/L=San Jose/OU=IonoAI/CN=Universal CA root"
 openssl x509 -req -days 90 -in ${hostname}.csr -signkey ${hostname}.key \
   -out ${hostname}.crt
 
@@ -17,6 +17,5 @@ openssl req -x509 -sha256 -nodes \
   -keyout ./${HOSTNAME}.key -out ./${HOSTNAME}.crt \
   -subj "/CN=${HOSTNAME}" \
   -extensions san \
-  # -config <(cat /etc/ssl/openssl.cnf <(echo -e "\n[san]\nsubjectAltName=DNS:${HOSTNAME},IP:$IP_ADDR"))
-  -config <(echo -e "\n[san]\nsubjectAltName=DNS:${HOSTNAME},IP:$IP_ADDR")
+  -config <(cat /etc/ssl/openssl.cnf <(echo -e "\n[san]\nsubjectAltName=DNS:${HOSTNAME},IP:$IP_ADDR"))
 
