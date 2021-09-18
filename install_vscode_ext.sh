@@ -23,3 +23,5 @@ $code --install-extension ms-vscode.vscode-node-azure-pack
 $code --install-extension ms-azuretools.vscode-azureterraform
 $code --install-extension riccardonovaglia.missinglineendoffile
 $code --install-extension dracula-theme.theme-dracula
+$code --install-extension mhutchie.git-graph
+
