@@ -27,4 +27,6 @@ $code --install-extension wesbos.theme-cobalt2
 $code --install-extension ahmadawais.shades-of-purple
 $code --install-extension mhutchie.git-graph
 $code --install-extension wholroyd.hcl
+$code --install-extension pnp.polacode
+
 # $code --install-extension rangav.vscode-thunder-client
